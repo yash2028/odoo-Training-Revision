@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="project_planning_line_tree_view">
+        <field name="name">project.planning.line.tree.view</field>
+        <field name="model">project.planning.line</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="project_id"/>
+                <field name="employee_id"/>
+                <field name="hours_invested"/>
+                <field name="hours_assigned"/>
+                <field name="hours_assigned_string"/>
+                <field name="hour_pending"/>
+                <field name="hours_pending_string"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="project_planning_line_form_view">
+        <field name="name">project.planning.line.form.view</field>
+        <field name="model">project.planning.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="project_id"/>
+                    <field name="employee_id"/>
+                    <field name="hours_invested"/>
+                    <field name="hours_assigned"/>
+                </group>
+                <group>
+                    <field name="hours_assigned_string"/>
+                    <field name="hour_pending"/>
+                    <field name="hours_pending_string"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_second_practice_paper_2">
+        <field name="name">Second Practice Paper</field>
+        <field name="res_model">project.planning.line</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Second Practice Paper" id="menu_main_second_paper"/>
+
+    <menuitem name="Second Practice Paper" id="menu_second_paper_2" action='action_second_practice_paper_2'  parent="menu_main_second_paper"/>
+</odoo>
