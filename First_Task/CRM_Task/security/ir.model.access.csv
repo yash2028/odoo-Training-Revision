@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_crm_lead_code_user,access.crm.lead.code.user,model_crm_lead,base.group_user,1,1,1,1
+access_res_partner_vendor_type_user,access.res.partner.vendor.type.user,model_res_partner_vendor_type,base.group_user,1,1,1,1
+access_res_partner_user,access.res.partner.user,model_res_partner,base.group_user,1,1,1,1
+access_purchase_order_user,access.purchase.order.user,model_purchase_order,base.group_user,1,1,1,1
