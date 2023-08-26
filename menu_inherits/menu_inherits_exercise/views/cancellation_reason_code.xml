@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+	<record model="ir.ui.view" id="cancellation_reason_code_tree_view">
+		<field name="name">cancellation.reason.code.tree.view</field>
+		<field name="model">cancellation.reason.code</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="first_name"/>
+				<field name="res_partner"/>
+			</tree>
+		</field>
+	</record>
+
+
+	<record model="ir.ui.view" id="cancellation_reason_code_form_view">
+		<field name="name">cancellation.reason.code.form.view</field>
+		<field name="model">cancellation.reason.code</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="first_name"/>
+						<field name="res_partner"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+
+	<record model="ir.actions.act_window" id="cancellation_reason_code">
+        <field name="name">Cancellation Reason Code</field>
+        <field name="res_model">cancellation.reason.code</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="Menu Inherits" id="menu_inherits"/>
+
+    <menuitem name="Cancellation Reason Code" 
+    	id="menu_cancellation_reason_code" 
+    	action="cancellation_reason_code"
+    	parent="menu_inherits"/>
+
+    <!-- add menu  -->
+
+    <menuitem name="cancellation reason code" 
+    	action="cancellation_reason_code"
+        id="sale.menu_cancellation_reason_code"
+        parent="sale.menu_sale_config"
+        sequence="3"
+    />
+
+
+
+    <!-- Purchase Order move menu vendor to configuration -->
+
+    <record id="purchase.menu_procurement_management_supplier_name" model="ir.ui.menu">
+    	<field name="name">Vendors</field>
+    	<field name="sequence">1</field>
+    	<field name="parent_id" ref="purchase.menu_purchase_config"/>
+    </record>
+
+
+    <!-- Inherit actions : change name -->
+    <record id="product.product_supplierinfo_type_action" model="ir.actions.act_window">
+    	<field name="name">Supplier Pricelist</field>
+    	
+    </record>
+
+
+</odoo>
+
