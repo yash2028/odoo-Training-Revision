@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="office_branch_tree_view">
+        <field name="name">office.branch.tree.view</field>
+        <field name="model">office.branch</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="office_id"/>
+                <field name="country_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="office_branch_form_view">
+        <field name="name">office.branch.form.view</field>
+        <field name="model">office.branch</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="office_id"/>
+                        </group>
+                        <group>
+                            <field name="country_name"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="co" string="Employee">
+                            <field name="employee_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_office_branch">
+        <field name="name">Office Branch</field>
+        <field name="res_model">office.branch</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Other" id="menu_office_branch" parent="menu_office_management"/>
+
+    <menuitem name="Branch" action="action_office_branch" id="menu_branch_office_branch" parent="menu_office_branch"/>
+</odoo>

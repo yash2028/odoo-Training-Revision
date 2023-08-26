@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="employee_skill_tree_view">
+        <field name="name">employee.skill.tree.view</field>
+        <field name="model">employee.skill</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="skill"/>
+                <field name="color" widget='color_picker'/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="employee_skill_form_view">
+        <field name="name">employee.skill.form.view</field>
+        <field name="model">employee.skill</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="skill"/>
+                            <field name="color"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+    <record model="ir.actions.act_window" id="action_employee_skill">
+        <field name="name">Skills</field>
+        <field name="res_model">employee.skill</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_skill"
+              name="Skills"
+              action="action_employee_skill"
+              parent="menu_office_branch"/>
+</odoo>
+
+

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="manage_task_tree_view">
+        <field name="name">manage.task.tree.view</field>
+        <field name="model">manage.task</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="task_name"/>
+                <field name="task_desc"/>
+                <field name="submit_time" widget="remaining_days"/>
+                <field name="priority"/>
+                <field name="assign_by"/>
+                <field name="assign_to"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="manage_task_form_view">
+        <field name="name">manage.task.form.view</field>
+        <field name="model">manage.task</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="task_name"/>
+                            <field name="submit_time"/>
+                            <field name="assign_by"/>
+                        </group>
+                        <group>
+                            <field name="task_desc"/>
+                            <field name="priority" widget="priority"/>
+                            <field name="assign_to"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_manage_task">
+        <field name="name">Manage Task</field>
+        <field name="res_model">manage.task</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Manage Task" action="action_manage_task" id="menu_manage_task" parent="menu_main_employee"/>
+</odoo>
+

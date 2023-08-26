@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_employee_info_user,access.employee.info.user,model_employee_info,base.group_user,1,1,1,1
+access_employee_attendance_user,access.employee.attendance.user,model_employee_attendance,base.group_user,1,1,1,1
+access_manage_task_user,access.manage.task.user,model_manage_task,base.group_user,1,1,1,1
+access_employee_salary_user,access.employee.salary.user,model_employee_salary,base.group_user,1,1,1,1
+access_employee_skill_user,access.employee.skill.user,model_employee_skill,base.group_user,1,1,1,1
+access_office_expense_user,access.office.expense.user,model_office_expense,base.group_user,1,1,1,1
+access_office_department_user,access.office.department.user,model_office_department,base.group_user,1,1,1,1
+access_office_designation_user,access.office.designation.user,model_office_designation,base.group_user,1,1,1,1
+access_office_information_user,access.office.information.user,model_office_information,base.group_user,1,1,1,1
+access_office_branch_user,access.office.branch.user,model_office_branch,base.group_user,1,1,1,1
+access_hr_inherits_user,access.hr.inherits.user,model_hr_inherits,base.group_user,1,1,1,1
+access_interviewer_user,access.interviewer.user,model_interviewer,base.group_user,1,1,1,1

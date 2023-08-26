@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="employee_attendance_tree_view">
+        <field name="name">employee.attendance.tree.view</field>
+        <field name="model">employee.attendance</field>
+        <field name="arch" type="xml">
+            <tree>
+<!--                <field name="name"/>-->
+                <field name="employee_name_id"/>
+                <field name="total_leave"/>
+                <field name="in_time"/>
+                <field name="out_time"/>
+                <field name="break_hours"/>
+                <field name="total_work_hours"/>
+                <field name="designation"/>
+
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="employee_attendance_form_view">
+        <field name="name">employee.attendance.from.view</field>
+        <field name="model">employee.attendance</field>
+        <field name="arch" type="xml">
+            <form create="0">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_name_id"/>
+                            <field name="in_time"/>
+                            <field name="break_hours"/>
+                            <field name="designation"/>
+
+                        </group>
+                        <group>
+                            <field name="total_leave"/>
+                            <field name="out_time"/>
+                            <field name="total_work_hours"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+<!--  Make Actions  -->
+    <record model="ir.actions.act_window" id="action_employee_attendance">
+        <field name="name">Employee Attendance</field>
+        <field name="res_model">employee.attendance</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+<!--  Making a child Menu  -->
+    <menuitem name="Employee Attendance" action="action_employee_attendance" id="menu_employee_attendance" parent="menu_main_employee"/>
+</odoo>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="office_expense_tree_view">
+        <field name="name">office.expense.tree.view</field>
+        <field name="model">office.expense</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="office_name"/>
+                <field name="events"/>
+                <field name="event_date"/>
+                <field name="cost"/>
+                <field name="event_description"/>
+                <field name="venue"/>
+                <field name="buy_product"/>
+                <field name="sr_number"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="office_expense_form_view">
+        <field name="name">office.expense.form.view</field>
+        <field name="model">office.expense</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="office_name"/>
+                            <field name="event_date"/>
+                            <field name="event_description"/>
+                            <field name="buy_product"/>
+                            <field name="price"/>
+                        </group>
+                        <group>
+                            <field name="events"/>
+                            <field name="cost"/>
+                            <field name="venue"/>
+                            <field name="sr_number"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_office_expense">
+        <field name="name">Office Expense</field>
+        <field name="res_model">office.expense</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Office" id="menu_main_office_management" parent="menu_office_management"/>
+
+    <menuitem name="Office Expense" action="action_office_expense" id="menu_office_expense" parent="menu_main_office_management"/>
+</odoo>

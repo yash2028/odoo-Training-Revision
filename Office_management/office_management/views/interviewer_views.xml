@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="interviewer_tree_view">
+        <field name="name">interviewer.tree.view</field>
+        <field name="model">interviewer</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="in_first_name"/>
+                <field name="in_last_name"/>
+                <field name="in_email"/>
+                <field name="in_phone"/>
+                <field name="in_city"/>
+                <field name="in_position"/>
+                <field name="in_experience"/>
+                <field name="in_linkedin_url"/>
+                <field name="in_education"/>
+<!--                <field name="in_about"/>-->
+                <field name="in_ref"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="interviewer_form_view">
+        <field name="name">interviewer.from.view</field>
+        <field name="model">interviewer</field>
+        <field name="arch" type="xml">
+            <form>
+<!--                <header>-->
+<!--                     <field name="state" widget="statusbar"/>-->
+<!--                </header>-->
+                <sheet>
+                    <widget name="web_ribbon" text="Selected" bg_color="bg-success" attrs="{'invisible':[('status','!=','s')]}"/>
+                    <widget name="web_ribbon" text="Rejected" bg_color="bg-danger" attrs="{'invisible':[('status','!=','r')]}"/>
+                    <group>
+                        <group>
+                            <field name="in_first_name" string="First name"/>
+                            <field name="in_email" on_change="ValidateEmail"/>
+                            <field name="in_city"/>
+                            <field name="in_experience"/>
+                            <field name="in_company_name" attrs="{'invisible':[('in_experience','==','fresher')],'required':[('in_experience','!=','fresher')]}"/>
+                            <field name="in_previous_position" attrs="{'invisible':[('in_experience','==','fresher')],'required':[('in_experience','!=','fresher')]}"/>
+                            <field name="in_previous_salary" attrs="{'invisible':[('in_experience','==','fresher')],'required':[('in_experience','!=','fresher')]}"/>
+                            <field name="in_education"/>
+                            <field name="in_ref" widget="radio"/>
+                            <field name="status" widget="radio"/>
+                        </group>
+                        <group>
+                            <field name="in_last_name" string="Last Name"/>
+                            <field name="in_phone"/>
+                            <field name="in_position" widget="radio"/>
+                            <field name="in_linkedin_url"/>
+                            <field name="interviewer_name"/>
+<!--                            <field name="in_about"/>-->
+                            <field name="rejected_brief" attrs="{'invisible':[('status','==','s')],'required':[('status','==','r')]}"/>
+
+                        </group>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+<!--  Make Actions  -->
+    <record model="ir.actions.act_window" id="action_interviewer">
+        <field name="name">Interviewer Details</field>
+        <field name="res_model">interviewer</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="HR" id="menu_hr" parent="menu_office_management"/>
+<!--  Making a child Menu  -->
+    <menuitem name="Interviewer Details" action="action_interviewer" id="menu_interviewer" parent="menu_hr"/>
+</odoo>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="hr_inherits_tree_view">
+        <field name="name">hr.inherits.tree.view</field>
+        <field name="model">hr.inherits</field>
+        <field name="arch" type="xml">
+            <tree>
+<!--                <field name="employee_info_id"/>-->
+                <field name="first_name"/>
+                <field name="mobile_no"/>
+                <field name="email"/>
+                <field name="date_of_birth"/>
+                <field name="gender"/>
+                <field name="image"/>
+                <field name="position_hr"/>
+                <field name="shift_time"/>
+                <field name="salary"/>
+                <field name="date_of_joining"/>
+                <field name="country_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_inherits_form_view">
+        <field name="name">hr.inherits.form.view</field>
+        <field name="model">hr.inherits</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+<!--                            <field name="employee_info_id"/>-->
+                            <field name="first_name"/>
+                            <field name="date_of_birth"/>
+                        </group>
+                        <group>
+                            <field name="mobile_no"/>
+                            <field name="email"/>
+                            <field name="gender"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="image"/>
+                            <field name="shift_time"/>
+                            <field name="date_of_joining"/>
+                            <field name="position_hr"/>
+                        </group>
+                        <group>
+<!--                            <field name="position"/>-->
+                            <field name="country_id"/>
+                            <field name="salary"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+<!--  Make  action  -->
+
+    <record model="ir.actions.act_window" id="action_hr_inherits">
+        <field name="name">HR Inherits</field>
+        <field name="res_model">hr.inherits</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+<!--  Making a Child Menu  -->
+
+    <menuitem name="Inherits" id="menu_inherits" parent="menu_office_management"/>
+
+    <menuitem name="HR Info" action="action_hr_inherits" id="menu_hr_inherits_info" parent="menu_inherits"/>
+
+</odoo>

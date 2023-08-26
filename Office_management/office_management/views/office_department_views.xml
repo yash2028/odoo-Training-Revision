@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="office_department_tree_view">
+        <field name="name">office.department.tree.view</field>
+        <field name="model">office.department</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="dept_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="office_department_form_view">
+        <field name="name">office.department.form.view</field>
+        <field name="model">office.department</field>
+        <field name="arch" type="xml">
+            <form>
+                <!-- <header>
+                    <button name="%(office_management.action_employee_info)d" class="oe_button_box" string="Show Employee"
+                type="action"/>
+                </header> -->
+                <header>
+                    <button name="call_function" class="oe_stat_box" string="Call Function"
+                type="object"/>
+                    <button name="count_employee" class="oe_highlight" string="Search Count" type="object"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(office_management.action_employee_info)d" 
+                            class="oe_stat_button" 
+                            string="Show Employee" 
+                            type="action" 
+                            icon="fa-pencil-square-o">
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="dept_name"/>
+                            <field name="count" readonly="1" string="Count Of Employee"/>
+                        </group>
+
+                    </group>
+                    <notebook>
+                        <page  name="dept_emp_page" string="Employee">
+
+                            <field name="employee_ids"/>
+                        </page>
+                        <!-- <page name="dept_salary" string="Salary">
+                            
+                        </page> -->
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_office_department">
+        <field name="name">Office Department</field>
+        <field name="res_model">office.department</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Office Department" action="action_office_department" id="menu_office_department" parent="menu_main_office_management"/>
+</odoo>

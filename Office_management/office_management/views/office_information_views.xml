@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="office_information_tree_view">
+        <field name="name">office.information.tree.view</field>
+        <field name="model">office.information</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="office_name"/>
+                <field name="office_address"/>
+                <field name="office_since"/>
+                <field name="office_contact"/>
+                <field name="office_email"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="office_information_form_view">
+        <field name="name">office.information.form.view</field>
+        <field name="model">office.information</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="office_name"/>
+                            <field name="office_since"/>
+                            <field name="office_email"/>
+                        </group>
+                        <group>
+                            <field name="office_address"/>
+                            <field name="office_contact"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="action_office_information">
+        <field name="name">Office Information</field>
+        <field name="res_model">office.information</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Information" action="action_office_information" id="menu_office_information" parent="menu_main_office_management"/>
+</odoo>

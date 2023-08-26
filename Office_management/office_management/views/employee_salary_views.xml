@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="employee_salary_tree_view">
+        <field name="name">employee.salary.tree.task</field>
+        <field name="model">employee.salary</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="epf"/>
+                <field name="epf_account_no"/>
+                <field name="account_no"/>
+                <field name="salary"/>
+                <field name="bonus"/>
+                <field name="pan_number"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="employee_salary_form_view">
+        <field name="name">employee.salary.form.task</field>
+        <field name="model">employee.salary</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="epf_account_no"/>
+                            <field name="salary"/>
+                            <field name="pan_number"/>
+                        </group>
+                        <group>
+                            <field name="epf"/>
+                            <field name="account_no"/>
+                            <field name="bonus"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_employee_salary">
+        <field name="name">Employee Salary</field>
+        <field name="res_model">employee.salary</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Employee Salary" action="action_employee_salary" id="menu_employee_salary" parent="menu_main_employee"/>
+</odoo>
