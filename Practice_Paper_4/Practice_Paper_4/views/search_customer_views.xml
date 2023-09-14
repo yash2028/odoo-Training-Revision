@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="customer_search_form_view_custom">
+        <field name="name">customer.search.form.view.custom</field>
+        <field name="model">search.customer</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="customer_id" string="Customer"/>
+                        </group>
+                        <group>
+                            <field name="mobile" string="Mobile"/>
+                            <field name="phone" string="Phone"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+<!--    <record model="ir.ui.view" id="employee_info_form_view">-->
+<!--        <field name="name">employee.info.form.view</field>-->
+<!--        <field name="model">search.customer</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <form>-->
+<!--                <header>-->
+<!--&lt;!&ndash;                    <button name="search_employee" type="object" class="oe_highlight" string="search"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <button name="browse_employee" type="object" class="oe_highlight" string="Browse"/>&ndash;&gt;-->
+<!--                </header>-->
+<!--                <sheet>-->
+<!--                    <group>-->
+<!--                        <group>-->
+<!--                        <field name="customer_id" string="Designation"/>-->
+<!--                        <field name="phone"/>-->
+<!--                        <field name="mobile"/>-->
+<!--                        </group>-->
+<!--                    </group>-->
+<!--                </sheet>-->
+<!--            </form>-->
+<!--        </field>-->
+<!--    </record>-->
+
+
+
+    <record model="ir.actions.act_window" id="action_search_customer">
+        <field name="name">Search Customer</field>
+        <field name="res_model">search.customer</field>
+        <field name="view_mode">form</field>
+    </record>
+<!--    <menuitem name="Search Customer Main" id="main_search_customer" parent="sale.sale_menu_root"/>-->
+
+    <menuitem
+            name="Search Customer"
+            id="search_customer"
+            action="action_search_customer"/>
+<!--            parent="sale.menu_sale_config"/>-->
+</odoo>

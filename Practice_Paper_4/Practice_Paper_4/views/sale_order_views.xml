@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="sale_order_discount_applies_form_view">
+        <field name="name">sale.order.discount.applies.form.view</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='order_details']/field[@name='payment_term_id']" position="after">
+                <field name="discount_applies_to" string="Discount Applies To" context="{'state':'global'}"/>
+            </xpath>
+
+
+            <xpath expr="//group[@name='sale_total']/field[@name='tax_totals']" position="after">
+                <field name="total_discount" string="Discount"/>
+            </xpath>
+
+            <xpath expr="//tree/field[@name='name']" position="after">
+                <field name="discount_method" string="Discount Method" attrs="{'column_invisible': [('parent.discount_applies_to', '!=', 'order_line')]}"/>
+                <field name="discount_amount" string="Discount Amount" attrs="{'column_invisible': [('parent.discount_applies_to', '!=', 'order_line')]}"/>
+            </xpath>
+
+            <xpath expr="//field[@name='note']" position="after">
+                <field name="discount_method" string="Discount Method" attrs="{'invisible':[('discount_applies_to','!=','global')]}"/>
+                <field name="discount_amount" string="Discount Amount" attrs="{'invisible':[('discount_applies_to','!=','global')]}"/>
+            </xpath>
+
+            <xpath expr="//tree/field[@name='product_id']" position="before">
+                <field name="product_category_id" string="Product Category"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
